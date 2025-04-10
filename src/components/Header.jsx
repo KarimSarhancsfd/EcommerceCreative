@@ -134,7 +134,7 @@ const navigation = {
     ],
 };
 
-export default function Example() {
+export default function Header() {
     const [open, setOpen] = useState(false);
 
     return (
