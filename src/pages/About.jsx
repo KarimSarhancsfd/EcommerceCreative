@@ -48,7 +48,7 @@ const About = () => {
               </Link>
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <Link to="/contact">Contact</Link> {/* Correct path */}
             </li>
             <li>
               <a href="cart.html" id="lg-bag">

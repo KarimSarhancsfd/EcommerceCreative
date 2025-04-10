@@ -55,7 +55,7 @@ const Home = () => {
               <Link to="/about">About</Link> {/* Link to About page */}
             </li>
             <li>
-              <Link to="/contact">Contact</Link> {/* Link to Contact page */}
+              <Link to="/contact">Contact</Link> {/* Correct path */}
             </li>
             <li>
               <a href="cart.html" id="lg-bag">

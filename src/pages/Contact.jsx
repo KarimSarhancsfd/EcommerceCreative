@@ -51,9 +51,7 @@ const Contact = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link className="active" to="/contact">
-                Contact
-              </Link>
+              <Link to="/contact">Contact</Link> {/* Correct path */}
             </li>
             <li>
               <a href="cart.html" id="lg-bag">
