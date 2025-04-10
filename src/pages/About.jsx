@@ -1,20 +1,20 @@
 import "../style/style.css";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
   faCircleUser,
-  faArrowRight,
-} from "@fortawesome/free-solid-svg-icons"; // Solid icons
+  faOutdent,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
   faInstagram,
   faPinterestP,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons"; // Brand icons
+} from "@fortawesome/free-brands-svg-icons";
 
-const Blog = () => {
+const About = () => {
   return (
     <div>
       {/* Header Section */}
@@ -34,26 +34,21 @@ const Blog = () => {
         <div>
           <ul id="navbar">
             <li>
-              <a href="#" id="close">
-                <FontAwesomeIcon icon={faBagShopping} />
-              </a>
-            </li>
-            <li>
-              <Link to="/">Home</Link> {/* Link to Home page */}
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="shop.html">Shop</a>
             </li>
             <li>
-              <Link className="active" to="/blog">
-                Blog
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link className="active" to="/about">
+                About
               </Link>
             </li>
             <li>
-              <Link to="/about">About</Link> {/* Link to About page */}
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link> {/* Link to Contact page */}
+              <a href="contact.html">Contact</a>
             </li>
             <li>
               <a href="cart.html" id="lg-bag">
@@ -71,46 +66,82 @@ const Blog = () => {
           <a href="cart.html">
             <FontAwesomeIcon icon={faBagShopping} />
           </a>
-          <FontAwesomeIcon id="bar" icon={faArrowRight} />
+          <FontAwesomeIcon id="bar" icon={faOutdent} />
         </div>
       </section>
 
       {/* Page Header */}
-      <section id="page-header" className="blog-header">
-        <h2>#readmore</h2>
-        <p>Read all case studies about our products!</p>
+      <section id="page-header" className="about-header">
+        <h2>#KnowUs</h2>
+        <p>Her beauty is simply beautiful</p>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog">
-        {[1, 2, 3, 4].map((item) => (
-          <div key={item} className="blog-box">
-            <div className="blog-img">
-              <img
-                src={new URL(`../img/blog/b${item}.jpg`, import.meta.url).href}
-                alt={`Blog ${item}`}
-              />
-            </div>
-            <div className="blog-details">
-              <h4>The Cotton-jersey Zip-up Hoodies</h4>
-              <p>
-                Kickstarter man braid godard clorng book. Raclette waistcoat
-                selfies yr wolf charteuse hexagon irony, godard...
-              </p>
-              <a href="#">CONTINUE READING</a>
-            </div>
-            <h1>13/01</h1>
+      {/* About Section */}
+      <section id="about-head" className="section-p1">
+        <img
+          src={new URL("../img/about/a6.jpg", import.meta.url).href}
+          alt="About Us"
+        />
+        <div>
+          <h2>Who We ARE?</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+            fugiat quas! Asperiores officiis ad rem totam dicta laboriosam minus
+            cupiditate, quas accusantium excepturi. Libero aliquam ipsam quasi
+            consequuntur error quos.
+          </p>
+          <abbr title="">
+            Create stunning images with as much or as little as you like using
+            basic and creative modes.
+          </abbr>
+          <br />
+          <br />
+          <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
+            Create stunning images with as much or as little as you like using
+            basic and creative modes.
+          </marquee>
+        </div>
+      </section>
+
+      {/* About App Section */}
+      <section id="about-app" className="section-p1">
+        <h1>
+          Download Our <a href="#">App</a>
+        </h1>
+        <div className="video">
+          <video
+            autoPlay
+            muted
+            loop
+            src={new URL("../img/about/1.mp4", import.meta.url).href}
+          ></video>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="feature" className="section-p1">
+        {[1, 2, 3, 4, 5, 6].map((item) => (
+          <div key={item} className="fe-box">
+            <img
+              src={
+                new URL(`../img/features/f${item}.png`, import.meta.url).href
+              }
+              alt={`Feature ${item}`}
+            />
+            <h6>
+              {
+                [
+                  "Free Shipping",
+                  "Online Order",
+                  "Save Money",
+                  "Promotions",
+                  "Happy Sell",
+                  "24/7 Support",
+                ][item - 1]
+              }
+            </h6>
           </div>
         ))}
-      </section>
-
-      {/* Pagination Section */}
-      <section id="pagination" className="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </a>
       </section>
 
       {/* Newsletter Section */}
@@ -240,4 +271,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default About;

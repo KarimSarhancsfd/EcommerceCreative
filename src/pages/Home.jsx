@@ -52,10 +52,10 @@ const Home = () => {
               <Link to="/blog">Blog</Link> {/* Link to Blog page */}
             </li>
             <li>
-              <a href="about.html">About</a>
+              <Link to="/about">About</Link> {/* Link to About page */}
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <Link to="/contact">Contact</Link> {/* Link to Contact page */}
             </li>
             <li>
               <a href="cart.html" id="lg-bag">

@@ -1,20 +1,25 @@
 import "../style/style.css";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
   faCircleUser,
-  faArrowRight,
-} from "@fortawesome/free-solid-svg-icons"; // Solid icons
+  faOutdent,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
   faInstagram,
   faPinterestP,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons"; // Brand icons
+} from "@fortawesome/free-brands-svg-icons";
 
-const Blog = () => {
+const Contact = () => {
+  const sendMail = () => {
+    // Add your email sending logic here
+    alert("Email sent successfully!");
+  };
+
   return (
     <div>
       {/* Header Section */}
@@ -34,26 +39,21 @@ const Blog = () => {
         <div>
           <ul id="navbar">
             <li>
-              <a href="#" id="close">
-                <FontAwesomeIcon icon={faBagShopping} />
-              </a>
-            </li>
-            <li>
-              <Link to="/">Home</Link> {/* Link to Home page */}
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="shop.html">Shop</a>
             </li>
             <li>
-              <Link className="active" to="/blog">
-                Blog
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link className="active" to="/contact">
+                Contact
               </Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link> {/* Link to About page */}
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link> {/* Link to Contact page */}
             </li>
             <li>
               <a href="cart.html" id="lg-bag">
@@ -71,46 +71,100 @@ const Blog = () => {
           <a href="cart.html">
             <FontAwesomeIcon icon={faBagShopping} />
           </a>
-          <FontAwesomeIcon id="bar" icon={faArrowRight} />
+          <FontAwesomeIcon id="bar" icon={faOutdent} />
         </div>
       </section>
 
       {/* Page Header */}
-      <section id="page-header" className="blog-header">
-        <h2>#readmore</h2>
-        <p>Read all case studies about our products!</p>
+      <section id="page-header" className="about-header">
+        <h2>#let's_talk</h2>
+        <p>LEAVE A MESSAGE, We love to hear from you!</p>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog">
-        {[1, 2, 3, 4].map((item) => (
-          <div key={item} className="blog-box">
-            <div className="blog-img">
-              <img
-                src={new URL(`../img/blog/b${item}.jpg`, import.meta.url).href}
-                alt={`Blog ${item}`}
-              />
-            </div>
-            <div className="blog-details">
-              <h4>The Cotton-jersey Zip-up Hoodies</h4>
+      {/* Contact Details Section */}
+      <section id="contact-details" className="section-p1">
+        <div className="details">
+          <span>GET IN TOUCH</span>
+          <h2>Visit one of our agency locations or contact us today</h2>
+          <h3>Head Office</h3>
+          <div>
+            <li>
+              <i className="fa-regular fa-map"></i>
+              <p>56 Glassford Street Glasgow G1 1UL New York</p>
+            </li>
+            <li>
+              <i className="fa-regular fa-envelope"></i>
               <p>
-                Kickstarter man braid godard clorng book. Raclette waistcoat
-                selfies yr wolf charteuse hexagon irony, godard...
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                fugiat? Corrupti recusandae possimus unde eos natus magnam neque
+                optio officiis.
               </p>
-              <a href="#">CONTINUE READING</a>
-            </div>
-            <h1>13/01</h1>
+            </li>
+            <li>
+              <i className="fa-solid fa-phone"></i>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                fugiat? Corrupti recusandae possimus unde eos natus magnam neque
+                optio officiis.
+              </p>
+            </li>
+            <li>
+              <i className="fa-regular fa-clock"></i>
+              <p>10AM to 5PM</p>
+            </li>
           </div>
-        ))}
+        </div>
+        <div className="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.938216974702!2d31.349028299999997!3d30.067305399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583e0b67b29aab%3A0xcadc62fe3a00998b!2sOxford%20City%20Center!5e0!3m2!1sen!2seg!4v1739080830576!5m2!1sen!2seg"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </section>
 
-      {/* Pagination Section */}
-      <section id="pagination" className="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </a>
+      {/* Form Section */}
+      <section id="form-details">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <span>LEAVE A MESSAGE</span>
+          <h2>We love to hear from you</h2>
+          <input id="sendername" type="text" placeholder="Your Name" />
+          <input id="email" type="text" placeholder="E-mail" />
+          <input id="subject" type="text" placeholder="Subject" />
+          <textarea
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+          ></textarea>
+          <button
+            id="submit"
+            type="submit"
+            onClick={sendMail}
+            className="normal"
+          >
+            Submit
+          </button>
+        </form>
+        <div className="people">
+          {[1, 2, 3].map((item) => (
+            <div key={item}>
+              <img
+                src={new URL(`../img/people/${item}.png`, import.meta.url).href}
+                alt={`Person ${item}`}
+              />
+              <p>
+                <span>John Doe</span> Senior Marketing Manager <br />
+                phone: +000 123 000 77 88 <br />
+                Email: contact@example.com
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Newsletter Section */}
@@ -194,16 +248,14 @@ const Blog = () => {
             </div>
           </div>
         </div>
-
         <div className="col">
           <h4>About</h4>
           <a href="#">About us</a>
           <a href="#">Delivery Information</a>
           <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
+          <a href="#">Term & Conditions</a>
           <a href="#">Contact Us</a>
         </div>
-
         <div className="col">
           <h4>Account</h4>
           <a href="#">Sign In</a>
@@ -212,7 +264,6 @@ const Blog = () => {
           <a href="#">Track My Order</a>
           <a href="#">Help</a>
         </div>
-
         <div className="install">
           <h4>Install App</h4>
           <p>From App Store or Google Play</p>
@@ -240,4 +291,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Contact;
