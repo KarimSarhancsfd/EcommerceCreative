@@ -51,12 +51,12 @@ const Contact = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link> {/* Correct path */}
+              <Link  to="/contact" className="active">Contact</Link> {/* Correct path */}
             </li>
             <li>
-              <a href="cart.html" id="lg-bag">
+              <Link to="/cart" id="lg-bag">
                 <FontAwesomeIcon icon={faBagShopping} />
-              </a>
+              </Link>
             </li>
             <li>
               <a href="userprofile.html">
