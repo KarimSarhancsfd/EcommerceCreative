@@ -1,10 +1,10 @@
 import "../style/style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
   faCircleUser,
-  faArrowRight
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -15,16 +15,42 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Shop = () => {
+  const navigate = useNavigate();
+
   const products = [
-    { id: 1, img: "f1.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 2, img: "f2.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 3, img: "f3.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 4, img: "f4.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 5, img: "f5.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 6, img: "f6.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 7, img: "f7.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
-    { id: 8, img: "f8.jpg", name: "Cartoon Astronaut T-Shirts", price: "$78" },
+    {
+      id: 1,
+      img: "f1.jpg",
+      name: "Cartoon Astronaut T-Shirts",
+      price: "$78",
+      variants: ["f1.jpg", "f2.jpg"],
+    },
+    {
+      id: 2,
+      img: "f2.jpg",
+      name: "Cartoon Astronaut T-Shirts",
+      price: "$78",
+      variants: ["f2.jpg"],
+    },
+    {
+      id: 3,
+      img: "f3.jpg",
+      name: "Cartoon Astronaut T-Shirts",
+      price: "$78",
+      variants: ["f3.jpg", "f4.jpg"],
+    },
+    {
+      id: 4,
+      img: "f4.jpg",
+      name: "Cartoon Astronaut T-Shirts",
+      price: "$78",
+      variants: ["f4.jpg"],
+    },
   ];
+
+  const handleProductClick = (product) => {
+    navigate("/sproduct", { state: { product } });
+  };
 
   return (
     <div>
@@ -100,7 +126,7 @@ const Shop = () => {
                 </div>
                 <h4>{product.price}</h4>
               </div>
-              <a href="#">
+              <a onClick={() => handleProductClick(product)}>
                 <FontAwesomeIcon icon={faBagShopping} className="cart" />
               </a>
             </div>
@@ -134,112 +160,112 @@ const Shop = () => {
         </div>
       </section>
 
-       {/* Footer Section */}
-           <footer className="section-p1">
-             <div className="col">
-               <img
-                 className="logo"
-                 src={
-                   new URL(
-                     "../img/Her Beauty Logo - Original with Transparent Background  Without Name and Slogan- 54x59  - .png",
-                     import.meta.url
-                   ).href
-                 }
-                 alt="Her Beauty Logo"
-               />
-               <h4>Contact</h4>
-               <p>
-                 <strong>Address:</strong> Mokattam
-               </p>
-               <p>
-                 <strong>Phone:</strong> Mokattam
-               </p>
-               <p>
-                 <strong>Hours:</strong> Mokattam
-               </p>
-               <div className="follow">
-                 <h4>Follow us</h4>
-                 <div className="icon">
-                   <a
-                     href="https://www.facebook.com"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                   >
-                     <FontAwesomeIcon icon={faFacebookF} />
-                   </a>
-                   <a
-                     href="https://www.twitter.com"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                   >
-                     <FontAwesomeIcon icon={faTwitter} />
-                   </a>
-                   <a
-                     href="https://www.instagram.com"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                   >
-                     <FontAwesomeIcon icon={faInstagram} />
-                   </a>
-                   <a
-                     href="https://www.pinterest.com"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                   >
-                     <FontAwesomeIcon icon={faPinterestP} />
-                   </a>
-                   <a
-                     href="https://www.youtube.com"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                   >
-                     <FontAwesomeIcon icon={faYoutube} />
-                   </a>
-                 </div>
-               </div>
-             </div>
-     
-             <div className="col">
-               <h4>About</h4>
-               <a href="#">About us</a>
-               <a href="#">Delivery Information</a>
-               <a href="#">Privacy Policy</a>
-               <a href="#">Terms & Conditions</a>
-               <a href="#">Contact Us</a>
-             </div>
-     
-             <div className="col">
-               <h4>Account</h4>
-               <a href="#">Sign In</a>
-               <a href="#">View Cart</a>
-               <a href="#">My Wishlist</a>
-               <a href="#">Track My Order</a>
-               <a href="#">Help</a>
-             </div>
-     
-             <div className="install">
-               <h4>Install App</h4>
-               <p>From App Store or Google Play</p>
-               <div className="row">
-                 <img
-                   src={new URL("../img/pay/app.jpg", import.meta.url).href}
-                   alt="App Store"
-                 />
-                 <img
-                   src={new URL("../img/pay/play.jpg", import.meta.url).href}
-                   alt="Google Play"
-                 />
-               </div>
-               <p>Secure Payment Gateways</p>
-               <img
-                 src={new URL("../img/pay/pay.png", import.meta.url).href}
-                 alt="Payment Methods"
-               />
-             </div>
-             <div className="copyright">
-               <p>© 2021, herbeauty - React Ecommerce App</p>
-             </div>
-           </footer>
+      {/* Footer Section */}
+      <footer className="section-p1">
+        <div className="col">
+          <img
+            className="logo"
+            src={
+              new URL(
+                "../img/Her Beauty Logo - Original with Transparent Background  Without Name and Slogan- 54x59  - .png",
+                import.meta.url
+              ).href
+            }
+            alt="Her Beauty Logo"
+          />
+          <h4>Contact</h4>
+          <p>
+            <strong>Address:</strong> Mokattam
+          </p>
+          <p>
+            <strong>Phone:</strong> Mokattam
+          </p>
+          <p>
+            <strong>Hours:</strong> Mokattam
+          </p>
+          <div className="follow">
+            <h4>Follow us</h4>
+            <div className="icon">
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faFacebookF} />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a
+                href="https://www.pinterest.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faPinterestP} />
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="col">
+          <h4>About</h4>
+          <a href="#">About us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+        </div>
+
+        <div className="col">
+          <h4>Account</h4>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
+        </div>
+
+        <div className="install">
+          <h4>Install App</h4>
+          <p>From App Store or Google Play</p>
+          <div className="row">
+            <img
+              src={new URL("../img/pay/app.jpg", import.meta.url).href}
+              alt="App Store"
+            />
+            <img
+              src={new URL("../img/pay/play.jpg", import.meta.url).href}
+              alt="Google Play"
+            />
+          </div>
+          <p>Secure Payment Gateways</p>
+          <img
+            src={new URL("../img/pay/pay.png", import.meta.url).href}
+            alt="Payment Methods"
+          />
+        </div>
+        <div className="copyright">
+          <p>© 2021, herbeauty - React Ecommerce App</p>
+        </div>
+      </footer>
     </div>
   );
 };
