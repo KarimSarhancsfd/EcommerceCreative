@@ -1,12 +1,10 @@
 import "../style/style.css";
-import { Link } from "react-router-dom"; // Import Link from React Router
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
-  faStar,
-  faOutdent,
   faUserCircle,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -21,7 +19,7 @@ const Home = () => {
     <div>
       {/* Header Section */}
       <section id="header">
-        <a href="#">
+        <Link to="/">
           <img
             src={
               new URL(
@@ -32,49 +30,36 @@ const Home = () => {
             className="logo"
             alt="Her Beauty Logo"
           />
-        </a>
-        <div>
-          <ul id="navbar">
-            <li>
-              <a href="#" id="close">
-                <FontAwesomeIcon icon={faTimes} />
-              </a>
-            </li>
-            <li>
-              <Link className="active" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <a href="shop.html">Shop</a>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link> {/* Link to Blog page */}
-            </li>
-            <li>
-              <Link to="/about">About</Link> {/* Link to About page */}
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link> {/* Correct path */}
-            </li>
-            <li>
-              <Link to="/cart" id="lg-bag">
-                <FontAwesomeIcon icon={faBagShopping} />
-              </Link>
-            </li>
-            <li>
-              <a href="userprofile.html">
-                <FontAwesomeIcon icon={faUserCircle} />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="mobile">
-          <a href="cart.html">
-            <FontAwesomeIcon icon={faBagShopping} />
-          </a>
-          <FontAwesomeIcon id="bar" icon={faOutdent} />
-        </div>
+        </Link>
+        <ul id="navbar">
+          <li>
+            <Link className="active" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FontAwesomeIcon icon={faBagShopping} />
+            </Link>
+          </li>
+          <li>
+            <a href="userprofile.html">
+              <FontAwesomeIcon icon={faUserCircle} />
+            </a>
+          </li>
+        </ul>
       </section>
 
       {/* Hero Section */}

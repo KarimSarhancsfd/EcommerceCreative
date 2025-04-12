@@ -19,7 +19,7 @@ const About = () => {
     <div>
       {/* Header Section */}
       <section id="header">
-        <a href="#">
+        <Link to="/">
           <img
             src={
               new URL(
@@ -30,38 +30,36 @@ const About = () => {
             className="logo"
             alt="Her Beauty Logo"
           />
-        </a>
-        <div>
-          <ul id="navbar">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <a href="shop.html">Shop</a>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link className="active" to="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link> {/* Correct path */}
-            </li>
-            <li>
-              <Link to="/cart" id="lg-bag">
-                <FontAwesomeIcon icon={faBagShopping} />
-              </Link>
-            </li>
-            <li>
-              <a href="userprofile.html">
-                <FontAwesomeIcon icon={faCircleUser} />
-              </a>
-            </li>
-          </ul>
-        </div>
+        </Link>
+        <ul id="navbar">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link className="active" to="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FontAwesomeIcon icon={faBagShopping} />
+            </Link>
+          </li>
+          <li>
+            <a href="userprofile.html">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </a>
+          </li>
+        </ul>
         <div id="mobile">
           <a href="cart.html">
             <FontAwesomeIcon icon={faBagShopping} />

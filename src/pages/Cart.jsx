@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBagShopping,
-  faCircleUser,
+  faCircleUser, 
 } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+  faPinterestP,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
-library.add(faBagShopping, faCircleUser);
 
 const Cart = () => {
   return (
@@ -46,12 +51,11 @@ const Cart = () => {
             <Link className="active" to="/cart">
               <FontAwesomeIcon icon={faBagShopping} />
             </Link>
-            </li>
-            <li>
-              <a href="userprofile.html">
-                            <FontAwesomeIcon icon={faCircleUser} />
-                          </a>
-                          
+          </li>
+          <li>
+            <a href="userprofile.html">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </a>
           </li>
         </ul>
       </section>
@@ -114,6 +118,23 @@ const Cart = () => {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section id="newsletter">
+        <div className="newstext">
+          <h4>Sign Up for Newsletters</h4>
+          <p>
+            Get E-mail updates about our latest shop and{" "}
+            <span>special offers.</span>
+          </p>
+        </div>
+        <div className="form">
+          <input type="text" placeholder="Your email address" />
+          <button id="Log In" className="normal">
+            Log In
+          </button>
+        </div>
+      </section>
+
       {/* Footer Section */}
       <footer className="section-p1">
         <div className="col">
@@ -140,27 +161,63 @@ const Cart = () => {
           <div className="follow">
             <h4>Follow us</h4>
             <div className="icon">
-              <FontAwesomeIcon icon={faBagShopping} />
-              <FontAwesomeIcon icon={faCircleUser} />
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faFacebookF} />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a
+                href="https://www.pinterest.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faPinterestP} />
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
             </div>
           </div>
         </div>
+
         <div className="col">
           <h4>About</h4>
-          <Link to="/about">About us</Link>
-          <Link to="/delivery">Delivery Information</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/terms">Terms & Conditions</Link>
-          <Link to="/contact">Contact Us</Link>
+          <a href="#">About us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
         </div>
+
         <div className="col">
           <h4>Account</h4>
-          <Link to="/signin">Sign In</Link>
-          <Link to="/cart">View Cart</Link>
-          <Link to="/wishlist">My Wishlist</Link>
-          <Link to="/track">Track My Order</Link>
-          <Link to="/help">Help</Link>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
         </div>
+
         <div className="install">
           <h4>Install App</h4>
           <p>From App Store or Google Play</p>
