@@ -1,4 +1,5 @@
 import "../style/style.css";
+import"../tailwindcss/tailwind.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,6 +14,7 @@ import {
   faPinterestP,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import Header from "../components/Category"; // Import the Header component
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -99,11 +101,8 @@ const Shop = () => {
         </ul>
       </section>
 
-      {/* Page Header */}
-      <section id="page-header">
-        <h2>#stayhome</h2>
-        <p>Save more with coupons & up to 70% off!</p>
-      </section>
+      {/* Header Component */}
+      <Header />
 
       {/* Product Section */}
       <section id="product1" className="section-p1">
