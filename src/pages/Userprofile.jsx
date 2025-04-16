@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/style.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,13 +6,32 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons"; // Correct import
 
 const Userprofile = () => {
+  // State to hold backend data
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Simulate form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted Data:", userData);
+    // You can send `userData` to the backend here using fetch/axios
+  };
+
   return (
     <div id="user-registration-login-body">
-      <form
-        className="form"
-        onSubmit={(e) => e.preventDefault()}
-        autoComplete="off"
-      >
+      <form className="form" onSubmit={handleSubmit} autoComplete="off">
         <div className="login-container">
           <div className="login-box">
             <img
@@ -32,10 +51,28 @@ const Userprofile = () => {
                   <FontAwesomeIcon icon={faUser} />
                   <input
                     style={{ fontSize: "medium" }}
-                    type="email"
-                    id="email"
+                    type="text"
+                    name="name"
+                    value={userData.name}
+                    onChange={handleChange}
                     className="form-control"
-                    placeholder="Enter your username"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="input-wrapper">
+                <div className="input-group">
+                  <FontAwesomeIcon icon={faUser} />
+                  <input
+                    style={{ fontSize: "medium" }}
+                    type="email"
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                    className="form-control"
+                    placeholder="Enter your email"
                     required
                   />
                 </div>
@@ -47,7 +84,9 @@ const Userprofile = () => {
                   <input
                     style={{ fontSize: "medium" }}
                     type="password"
-                    id="password"
+                    name="password"
+                    value={userData.password}
+                    onChange={handleChange}
                     className="form-control"
                     placeholder="Enter your password"
                     required
