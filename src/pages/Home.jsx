@@ -55,9 +55,9 @@ const Home = () => {
             </Link>
           </li>
           <li>
-            <a href="userprofile.html">
+            <Link to="/userprofile">
               <FontAwesomeIcon icon={faUserCircle} />
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

@@ -1,10 +1,7 @@
 import "../style/style.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBagShopping,
-  faCircleUser, 
-} from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
@@ -12,7 +9,6 @@ import {
   faPinterestP,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-
 
 const Cart = () => {
   return (
@@ -53,9 +49,9 @@ const Cart = () => {
             </Link>
           </li>
           <li>
-            <a href="userprofile.html">
+            <Link to="/userprofile">
               <FontAwesomeIcon icon={faCircleUser} />
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

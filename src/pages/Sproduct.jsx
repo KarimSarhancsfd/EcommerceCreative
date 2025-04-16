@@ -9,10 +9,11 @@
 
 // The App.jsx file includes a new route for Sproduct.jsx (/sproduct).
 
-
-
 import "../style/style.css";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 const Sproduct = () => {
   const { state } = useLocation();
@@ -24,6 +25,11 @@ const Sproduct = () => {
 
   return (
     <div>
+      {/* User Profile Link */}
+      <Link to="/userprofile">
+        <FontAwesomeIcon icon={faCircleUser} />
+      </Link>
+
       {/* Product Details Section */}
       <section id="prodetails" className="section-p1">
         <div className="single-pro-image">

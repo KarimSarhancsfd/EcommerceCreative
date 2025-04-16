@@ -55,9 +55,9 @@ const Blog = () => {
             </Link>
           </li>
           <li>
-            <a href="userprofile.html">
+            <Link to="/userprofile">
               <FontAwesomeIcon icon={faCircleUser} />
-            </a>
+            </Link>
           </li>
         </ul>
       </section>
